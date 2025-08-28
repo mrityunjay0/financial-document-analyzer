@@ -63,29 +63,34 @@ requirements.txt         # Dependencies
     .venv\Scripts\activate      # Windows
 ```
 3. **Install dependencies**
-```Bash```
+```Bash
     pip install -r requirements.txt
-
+```
 4. **Configure environment**
-```Bash```
+```Bash
     OPENAI_API_KEY=sk-xxxxxx
-
-Run the Project
+```
+## Run the Project
 
 1. Run CLI Mode:
+```Bash
     python src/financial_analyzer/main.py
-
+```
 2. Run FastAPI Server:
+```Bash
     cd src
     uvicorn financial_analyzer.app:app --reload
-
-Outputs
+```
+## Outputs:
 
 	•	extracted.json → Raw extracted chunks
 	•	extracted.csv / extracted.xlsx → Structured tabular data
 	•	analysis_result.pdf → Final insights in table format
 
+## Bugs:
+
 1. FastAPI Import Error (Error loading ASGI app)
+
 	•	Cause: Ran uvicorn app:app --reload while app.py was inside src/financial_analyzer/. Python couldn’t find the module.
 	•	Fix: Corrected the module path to:
         uvicorn src.app:app --reload
