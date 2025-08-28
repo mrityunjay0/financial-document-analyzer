@@ -92,6 +92,7 @@ requirements.txt         # Dependencies
 1. FastAPI Import Error (Error loading ASGI app)
 
 	•	Cause: Ran uvicorn app:app --reload while app.py was inside src/financial_analyzer/. Python couldn’t find the module.
+
 	•	Fix: Corrected the module path to:
         uvicorn src.app:app --reload
 
