@@ -127,48 +127,67 @@ requirements.txt         # Dependencies
 	•	Cause: .env file wasn’t being loaded automatically.
 
 	•	Fix: Installed and used python-dotenv,
-
         added:
         from dotenv import load_dotenv
         load_dotenv()
 
 6. Uvicorn Hot Reload Crashes
+
 	•	Cause: Ran uvicorn from project root instead of src/.
+
 	•	Fix: Changed working directory to src before starting server:
+```Bash
         cd src
         uvicorn src.app:app --reload
+```
 
-
-        Project Workflow: Financial Document Analyzer
+## Project Workflow: Financial Document Analyzer
 
 1. Input Handling (User Upload)
+
 	•	Interface: User uploads a financial PDF (e.g., balance sheet, annual report) through the FastAPI endpoint.
+
 	•	The uploaded file is stored temporarily in the /data directory.
 
 2. PDF Extraction Layer
+
 	•	pdf_extractor.py extracts raw text and tabular data.
+
 	•	Uses libraries like PyPDF2, pdfplumber, or camelot/tabula.
+
 	•	Raw content is then structured into:
+
 	•	JSON → captures structured entities.
+
 	•	CSV → for tabular data (transactions, balances).
+
 	•	XLSX → for Excel users & BI tools.
 
 3. Data Preprocessing
+
 	•	Cleaned data (JSON/CSV/XLSX) is stored in /data.
 
 4. AI-Powered Financial Analysis
+
 	•	Once structured data is ready, OpenAI API is called.
+
 	•	Prompt includes the JSON/CSV content → model returns:
+
 	•	Investment Recommendations
+
 	•	Risk Analysis
+
 	•	Market Trends / Insights
 
 5. Report Generation
+
 	•	Results from OpenAI are converted into:
+
 	•	PDF Summary Report (using reportlab)
 
 6. Error Handling / Bugs Fixed
+
 	•	ASGI Import Error (Could not import app) → fixed by pointing to correct module:
+```Bash
 uvicorn src.financial_analyzer.app:app --reload
-	•	OPENAI_API_KEY not loaded → fixed with .env + python-dotenv.
-	•	File not saving → fixed by ensuring /data is writable and paths were absolute.
+```
