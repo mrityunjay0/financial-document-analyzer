@@ -1,0 +1,29 @@
+ingest_pdf_task:
+  description: Ingest the uploaded PDF and return cleaned text.
+  expected_output: A file with extracted text or a JSON array of chunks.
+  agent: extractor
+  output_file: data/extracted.json
+
+analyze_financials_task:
+  description: Compute ratios and structured metrics.
+  expected_output: Financial ratios as JSON.
+  agent: accountant
+  context:
+    - ingest_pdf_task
+  output_file: output/metrics.json
+
+write_report_task:
+  description: Produce a markdown analysis and investment recommendation.
+  expected_output: A detailed markdown report and recommendations JSON.
+  agent: analyst
+  context:
+    - analyze_financials_task
+  output_file: output/analysis.md
+
+final_recommendation_task:
+  description: Create final recommendation & risk assessment document.
+  expected_output: recommendations.json
+  agent: recommender
+  context:
+    - write_report_task
+  output_file: output/recommendations.json

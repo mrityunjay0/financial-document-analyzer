@@ -1,0 +1,4 @@
+venv/
+FDAC/.env
+__pycache__/
+output/
