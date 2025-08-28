@@ -52,16 +52,16 @@ requirements.txt         # Dependencies
 ##  Setup & Installation
 
 1. **Clone the repo**
-```Bash```
+```Bash
    git clone https://github.com/mrityunjay0/financial-document-analyzer.git
    cd financial-document-analyzer
-   
+   ```
 2.	**Create a virtual environment**
-```Bash```
+```Bash
     python3 -m venv .venv
     source .venv/bin/activate   # macOS/Linux
     .venv\Scripts\activate      # Windows
-
+```
 3. **Install dependencies**
 ```Bash```
     pip install -r requirements.txt
