@@ -50,7 +50,7 @@ requirements.txt         # Dependencies
 ---
 
 ##  Setup & Installation
-
+```bash```
 1. **Clone the repo**
    git clone https://github.com/mrityunjay0/financial-document-analyzer.git
    cd financial-document-analyzer
@@ -72,7 +72,7 @@ Run the Project
 1. Run CLI Mode:
     python src/financial_analyzer/main.py
 
-2. Run FastAPI Server
+2. Run FastAPI Server:
     cd src
     uvicorn financial_analyzer.app:app --reload
 
