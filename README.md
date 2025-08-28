@@ -127,6 +127,7 @@ requirements.txt         # Dependencies
 	•	Cause: .env file wasn’t being loaded automatically.
 
 	•	Fix: Installed and used python-dotenv,
+
         added:
         from dotenv import load_dotenv
         load_dotenv()
