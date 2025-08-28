@@ -87,7 +87,7 @@ requirements.txt         # Dependencies
 	•	extracted.csv / extracted.xlsx → Structured tabular data
 	•	analysis_result.pdf → Final insights in table format
 
-## Bugs:
+## Bugs & Fixes:
 
 1. FastAPI Import Error (Error loading ASGI app)
 
@@ -97,24 +97,37 @@ requirements.txt         # Dependencies
         uvicorn src.app:app --reload
 
 2. No Output File Generated (analysis results missing)
+
 	•	Cause: analysis.py returned a string but no logic existed to write output into a file.
+
 	•	Fix: Added file writers (with open(...)) for .txt, .pdf, .csv, and .xlsx.
+
 	•	Used Pandas for CSV/Excel.
+
 	•	Used ReportLab for PDF with tables.
 
 3. PDF Output Not in Table Format
+
 	•	Cause: Initial PDF export was plain text (not structured).
+
 	•	Fix: Used reportlab.platypus.Table to format financial analysis into a table inside analysis_result.pdf.
 
 4. Confusion Between CLI Mode & API Mode
+
 	•	Cause: Both main.py and app.py existed, but user tried running API via main.py.
+
 	•	Fix: Separated execution clearly:
+
 	•	main.py → CLI mode.
+
 	•	app.py → FastAPI server mode.
 
 5. Environment Variables Not Detected
+
 	•	Cause: .env file wasn’t being loaded automatically.
-	•	Fix: Installed and used python-dotenv, added:
+
+	•	Fix: Installed and used python-dotenv,
+        added:
         from dotenv import load_dotenv
         load_dotenv()
 
