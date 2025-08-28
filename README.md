@@ -57,6 +57,7 @@ requirements.txt         # Dependencies
    cd financial-document-analyzer
    
 2.	Create a virtual environment
+
     python3 -m venv .venv
     source .venv/bin/activate   # macOS/Linux
     .venv\Scripts\activate      # Windows
