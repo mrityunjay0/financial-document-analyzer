@@ -50,10 +50,11 @@ requirements.txt         # Dependencies
 ---
 
 ##  Setup & Installation
-```bash```
+
 1. **Clone the repo**
+2. ```Bash
    git clone https://github.com/mrityunjay0/financial-document-analyzer.git
-   cd financial-document-analyzer
+   cd financial-document-analyzer ```
    
 2.	**Create a virtual environment**
 
