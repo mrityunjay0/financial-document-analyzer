@@ -52,20 +52,22 @@ requirements.txt         # Dependencies
 ##  Setup & Installation
 
 1. **Clone the repo**
-2. ```Bash
+```Bash```
    git clone https://github.com/mrityunjay0/financial-document-analyzer.git
-   cd financial-document-analyzer ```
+   cd financial-document-analyzer
    
 2.	**Create a virtual environment**
-
+```Bash```
     python3 -m venv .venv
     source .venv/bin/activate   # macOS/Linux
     .venv\Scripts\activate      # Windows
 
 3. **Install dependencies**
+```Bash```
     pip install -r requirements.txt
 
 4. **Configure environment**
+```Bash```
     OPENAI_API_KEY=sk-xxxxxx
 
 Run the Project
